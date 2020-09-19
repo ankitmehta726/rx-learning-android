@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        tools:layout="@layout/fragment_dashboard"
+        android:name="com.am.rxlearnings.DashboardFragment"
+        android:label="DashboardFragment" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_asyncFragment"
+            app:destination="@id/asyncFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/asyncFragment"
+        tools:layout="@layout/fragment_async"
+        android:name="com.am.rxlearnings.async.AsyncFragment"
+        android:label="AsyncFragment" />
+
+
+</navigation>
