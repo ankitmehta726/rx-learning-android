@@ -10,11 +10,10 @@ import androidx.fragment.app.Fragment
 import com.am.rxlearnings.MainActivity
 import com.am.rxlearnings.R
 import com.bumptech.glide.Glide
-import io.reactivex.Observable.create
-import io.reactivex.ObservableOnSubscribe
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.ObservableOnSubscribe
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_async.*
 import java.util.*
 
@@ -47,41 +46,41 @@ class AsyncFragment: Fragment() {
 
     @Throws(Throwable::class)
     private fun createThumbnail(videoPath: String){
-        val disposable = create(ObservableOnSubscribe<Bitmap> {
-            val bitmap: Bitmap?
-            var mediaMetadataRetriever: MediaMetadataRetriever? = null
-            try {
-                mediaMetadataRetriever = MediaMetadataRetriever()
-                mediaMetadataRetriever.setDataSource(
-                    videoPath,
-                    HashMap()
-                )
-                bitmap = mediaMetadataRetriever.getFrameAtTime(1, MediaMetadataRetriever.OPTION_CLOSEST)
-            } catch (e: Exception) {
-                it.onError(e)
-                e.printStackTrace()
-                throw Throwable(
-                    "Exception in retrieve VideoFrameFromVideo(String videoPath)"
-                            + e.message
-                )
-            } finally {
-                mediaMetadataRetriever?.release()
-            }
-            it.onNext(bitmap!!)
-        })
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {
-                btnCreateThubmbail.isEnabled = true
-                if (ivThumbnail != null) {
-                    Glide.with(activity as MainActivity)
-                        .asBitmap()
-                        .load(it)
-                        .into(ivThumbnail)
-                }
-            }
+//        val disposable = create(ObservableOnSubscribe<Bitmap> {
+//            val bitmap: Bitmap?
+//            var mediaMetadataRetriever: MediaMetadataRetriever? = null
+//            try {
+//                mediaMetadataRetriever = MediaMetadataRetriever()
+//                mediaMetadataRetriever.setDataSource(
+//                    videoPath,
+//                    HashMap()
+//                )
+//                bitmap = mediaMetadataRetriever.getFrameAtTime(1, MediaMetadataRetriever.OPTION_CLOSEST)
+//            } catch (e: Exception) {
+//                it.onError(e)
+//                e.printStackTrace()
+//                throw Throwable(
+//                    "Exception in retrieve VideoFrameFromVideo(String videoPath)"
+//                            + e.message
+//                )
+//            } finally {
+//                mediaMetadataRetriever?.release()
+//            }
+//            it.onNext(bitmap!!)
+//        })
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribe {
+//                btnCreateThubmbail.isEnabled = true
+//                if (ivThumbnail != null) {
+//                    Glide.with(activity as MainActivity)
+//                        .asBitmap()
+//                        .load(it)
+//                        .into(ivThumbnail)
+//                }
+//            }
 
-        compositeDisposable.add(disposable)
+//        compositeDisposable.add(disposable)
     }
 
     override fun onDestroy() {

@@ -45,6 +45,9 @@ dependencies {
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
 
+    // RxViewBinding by Jack Wharton
+    implementation 'com.jakewharton.rxbinding4:rxbinding:4.0.0'
+
     //Material design dependency
     implementation 'com.google.android.material:material:1.2.1'
 

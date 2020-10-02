@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/rlToolbar"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="55dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:text="Debounce Example"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/hammersmith_one"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvLblAsyncDescription"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/rlToolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/hammersmith_one"
+        android:textSize="16sp"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Search from a list with a delay of \n300ms"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etVideoURL"
+        android:layout_width="match_parent"
+        android:layout_margin="15dp"
+        android:paddingStart="5dp"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:paddingEnd="5dp"
+        android:fontFamily="@font/hammersmith_one"
+        android:hint="Enter Search Query"
+        app:layout_constraintTop_toBottomOf="@id/tvLblAsyncDescription"
+        android:layout_height="50dp"/>
+
+    <Button
+        android:id="@+id/btnCreateThubmbail"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etVideoURL"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="#FFFF"
+        android:fontFamily="@font/hammersmith_one"
+        android:paddingStart="15dp"
+        android:text="Search"
+        android:layout_marginTop="15dp"
+        android:background="@color/colorAccent"
+        android:paddingEnd="15dp"
+        android:layout_height="40dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_asyncFragment"
             app:destination="@id/asyncFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_debounceFragment"
+            app:destination="@id/debounceFragment" />
     </fragment>
 
     <fragment
@@ -20,6 +23,11 @@
         tools:layout="@layout/fragment_async"
         android:name="com.am.rxlearnings.async.AsyncFragment"
         android:label="AsyncFragment" />
+    <fragment
+        android:id="@+id/debounceFragment"
+        tools:layout="@layout/fragment_debounce"
+        android:name="com.am.rxlearnings.debounce.DebounceFragment"
+        android:label="DebounceFragment" />
 
 
 </navigation>

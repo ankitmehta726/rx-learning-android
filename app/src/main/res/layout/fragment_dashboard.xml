@@ -37,6 +37,19 @@
             android:text="Async Task"
             android:layout_height="50dp"/>
 
+        <Button
+            android:id="@+id/btnDebounce"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/hammersmith_one"
+            app:cornerRadius="10dp"
+            android:background="#43A047"
+            android:textAllCaps="false"
+            android:layout_marginTop="15dp"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:text="Debounce"
+            android:layout_height="50dp"/>
+
     </LinearLayout>
 
 </ScrollView>
