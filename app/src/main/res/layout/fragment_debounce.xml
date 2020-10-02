@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"/>
 
     <EditText
-        android:id="@+id/etVideoURL"
+        android:id="@+id/etQuery"
         android:layout_width="match_parent"
         android:layout_margin="15dp"
         android:paddingStart="5dp"
@@ -52,7 +52,7 @@
     <Button
         android:id="@+id/btnCreateThubmbail"
         android:layout_width="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/etVideoURL"
+        app:layout_constraintTop_toBottomOf="@id/etQuery"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="#FFFF"
@@ -63,5 +63,17 @@
         android:background="@color/colorAccent"
         android:paddingEnd="15dp"
         android:layout_height="40dp"/>
+
+    <TextView
+        android:id="@+id/tvFilteredQuery"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/hammersmith_one"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        app:layout_constraintTop_toBottomOf="@id/btnCreateThubmbail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

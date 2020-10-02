@@ -6,8 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.am.rxlearnings.R
+import com.jakewharton.rxbinding4.widget.textChanges
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import kotlinx.android.synthetic.main.fragment_debounce.*
+import java.util.concurrent.TimeUnit
 
-class DebounceFragment: Fragment() {
+class DebounceFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,5 +23,17 @@ class DebounceFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        etQuery.textChanges()
+            .filter {
+                it.length >= 3
+            }
+            .debounce(150, TimeUnit.MILLISECONDS)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(this::displayEnteredQuery)
+    }
+
+    private fun displayEnteredQuery(query: String) {
+        tvFilteredQuery.text = query
     }
 }

@@ -24,6 +24,10 @@ class DashboardFragment : Fragment() {
         btnAsyncTask.setOnClickListener {
             navigateToAsyncFragment()
         }
+
+        btnDebounce.setOnClickListener {
+            navigateToDebounceFragment()
+        }
     }
 
     // Navigate to the AsyncFragment using navigation controller actions defined in the navigation
@@ -31,5 +35,12 @@ class DashboardFragment : Fragment() {
     private fun navigateToAsyncFragment(){
         Navigation.findNavController(view!!)
             .navigate(R.id.action_dashboardFragment_to_asyncFragment)
+    }
+
+    // Navigate to DebounceFragment using navigation controller action
+    // when user tries to open the expected screen.
+    private fun navigateToDebounceFragment(){
+        Navigation.findNavController(view!!)
+            .navigate(R.id.action_dashboardFragment_to_debounceFragment)
     }
 }
