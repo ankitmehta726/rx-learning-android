@@ -28,9 +28,11 @@ class DebounceFragment : Fragment() {
             .filter {
                 it.length >= 3
             }
-            .debounce(150, TimeUnit.MILLISECONDS)
+            .debounce(300, TimeUnit.MILLISECONDS)
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(this::displayEnteredQuery)
+            .subscribe {
+                displayEnteredQuery(it.toString())
+            }
     }
 
     private fun displayEnteredQuery(query: String) {
